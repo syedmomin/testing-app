@@ -1,4 +1,4 @@
-import React ,{useState}from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
@@ -10,86 +10,47 @@ let FirstFun = ({ a, b }) => (
 )
 
 
-// let SeondFun = (props) => {
+let SeondFun = (props) => {
 
-//     const Addnumber = () => {
-//         const [setnumber, getnumber] = useState({
-//             one: "",
-//             two: ""
-//         })
-//     }
 
-//     const handleSubmit = (e) => {
-//         e.preventDefault()
-//         console.log(e)
-//     }
 
-//     return (
-//         <>
-//             <FirstFun a="3" b="3" />
-//             <form>
-//                 <input type="text" />
-//                 <input type="text" />
-//                 <button type='submit'>submit</button>
-//             </form>
-//         </>
-//     )
 
-// }
+    const [numOne, setOne] = useState()
+    const [numTwo, setTwo] = useState()
+    let total = numOne + numTwo;
 
-let SimpleForm =(props) => {
-    //create object state
-    const [form, setForm] = useState({
-        FirstName: '',
-        LastName: '',
-        age: '',
-    });
-
-    const handleChange = event => {
-        event.preventDefault();
-        setForm({
-            ...form,
-            [event.target.name]: event.target.value,
-        });
-    };
+    const handleSubmit = (e) => {
+        e.preventDefault()
+let costs = setTwo;
+console.log(costs)
+        // console.log(e)
+    }
 
     return (
-        <form>
-            <label>
-                First Name:
+        <div>
+            <h4>Add Two Number : {total}</h4>
+            <form onSubmit={handleSubmit}>
                 <input
                     type="text"
-                    name="firstName"
-                    value={form.firstName}
-                    onChange={handleChange}
+                    onChange={(e) => setOne(e.target.value)}
                 />
-            </label>
-            <label>
-                Last Name:
+                <br />
                 <input
                     type="text"
-                    name="lastName"
-                    value={form.lastName}
-                    onChange={handleChange}
+                    onChange={(e) => setTwo(e.target.value)}
                 />
-            </label>
-            <label>
-                Age:
-                <input
-                    type="number"
-                    name="age"
-                    value={form.age}
-                    onChange={handleChange}
-                />
-            </label>
-            <input type="submit" value="Submit" />
-        </form>
+                <br />
+                <button type="submit">Submit</button>
+            </form>
+        </div>
     );
+
+
 }
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-     <SimpleForm />
-  </React.StrictMode>
+    <React.StrictMode>
+        <SeondFun />
+    </React.StrictMode>
 );
