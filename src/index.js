@@ -14,55 +14,39 @@ let SeondFun = (props) => {
 
 
 
-    // Add = () => {
-    //     var n1 = parseInt(this.state.Num1);
-    //     var n2 = parseInt(this.state.Num2);
-    //     var ans = n1 + n2;
-    // }
+
+    const [numOne, setOne] = useState()
+    const [numTwo, setTwo] = useState()
+    let total = numOne + numTwo;
+
     const handleSubmit = (e) => {
-            e.preventDefault()
-            console.log(e)
-        }
+        e.preventDefault()
+let costs = setTwo;
+console.log(costs)
+        // console.log(e)
+    }
 
     return (
         <div>
+            <h4>Add Two Number : {total}</h4>
             <form onSubmit={handleSubmit}>
-            <input type="text"
-                onChange={Num1 => this.setState({ Num1 })}
-            />
-            <input type="text"
-                onChange={Num2 => this.setState({ Num2 })}
-            />
-            <button type="submit">Submit data</button>
+                <input
+                    type="text"
+                    onChange={(e) => setOne(e.target.value)}
+                />
+                <br />
+                <input
+                    type="text"
+                    onChange={(e) => setTwo(e.target.value)}
+                />
+                <br />
+                <button type="submit">Submit</button>
             </form>
         </div>
     );
 
-// const Addnumber = () => {
-//     const [setnumber, getnumber] = useState({
-//         one: "",
-//         two: ""
-//     })
-// }
-
-// const handleSubmit = (e) => {
-//     e.preventDefault()
-//     console.log(e)
-// }
-
-// return (
-//     <>
-//         <FirstFun a="3" b="3" />
-//         <form>
-//             <input type="text" />
-//             <input type="text" />
-//             <button type='submit'>submit</button>
-//         </form>
-//     </>
-// )
 
 }
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
