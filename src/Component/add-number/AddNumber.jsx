@@ -4,13 +4,6 @@ import './AddNumber.css'
 
 let AddNumber = () => {
 
-    let FirstFun = ({ a, b }) => (
-        <>
-            <h1>first function same component</h1>
-            <h3>Add number is : {parseInt(a) + parseInt(b)} </h3>
-        </>
-    )
-
     const [inputs, setInputs] = useState({
         numOne: '',
         numTwo: ''

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import AddNumber from './Component/add-number/AddNumber.jsx'
+import AddNumber from './Component/add-number/AddNumber'
 
 
 
