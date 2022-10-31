@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Textfit } from "react-textfit";
 import './Calculator.css'
 
 
@@ -13,33 +12,21 @@ const Calculator = () => {
         [1, 2, 3, "+"],
         [0, ".", "="],
     ];
-    const Wrapper = ({ children }) => {
-        return <div className="wrapper">{children}</div>;
-    };
-
     return (
-        <>
-            <Wrapper>
-                {/* <Screen value=0 /> */}
-                <Textfit className="screen" mode="single" max={70}>
-                    {value}
-                </Textfit>
+            <div className="buttonBox">
                 {
-                    btnValues.flat().map((btn, i) => {
+                    btnValues.flat().map((val, i) => {
                         return (
-                            <Button
+                            <button
                                 key={i}
-                                className={btn === "=" ? "equals" : ""}
-                                value={btn}
-                                onClick={() => {
-                                    console.log(`${btn} clicked!`);
-                                }}
-                            />
+                                // className={btn === "=" ? "equals" : ""}
+                                value={val}
+                                onClick={e => this.props.onClick(e.target.value)}
+                            >{val}</button>
                         );
                     })
                 }
-            </Wrapper>
-        </>
+            </div>
     );
 };
 
