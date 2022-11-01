@@ -12,7 +12,46 @@ const Calculator = () => {
         [1, 2, 3, "+"],
         [0, ".", "="],
     ];
+
+    const setcalcu = (val) => {
+    //     if (val === "=") {
+    //         calculate();
+    //     }
+
+    //     else if (val === "C") {
+    //         reset();
+    //     }
+
+    //     else if (val === "CE") {
+    //         backspace();
+    //     }
+
+    //     else {
+    //         setState({
+    //             result: this.state.result + val
+    //         })
+    //     }
+    };
+
+
+    // let reset = () => {
+    //     setState({
+    //         result: ""
+    //     })
+    // };
+
+    // let backspace = () => {
+    //     setState({
+    //         result: this.state.result.slice(0, -1)
+    //     })
+    // };
+
+
     return (
+        <>
+            <div className="calculator">
+                <input type="text" />
+            </div>
             <div className="buttonBox">
                 {
                     btnValues.flat().map((val, i) => {
@@ -21,12 +60,14 @@ const Calculator = () => {
                                 key={i}
                                 // className={btn === "=" ? "equals" : ""}
                                 value={val}
-                                onClick={e => this.props.onClick(e.target.value)}
+                                onClick={(e) => setcalcu(e.target.value)}
                             >{val}</button>
                         );
                     })
                 }
             </div>
+
+        </>
     );
 };
 
