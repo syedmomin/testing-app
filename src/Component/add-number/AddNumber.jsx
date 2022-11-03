@@ -18,7 +18,7 @@ let AddNumber = () => {
 
     
     return (
-        <div>
+        <div className='mainDiv'>
             <h4>Add Two Number : {total== NaN ? null: total}</h4>
                 <input
                     type="text"

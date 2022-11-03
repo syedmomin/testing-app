@@ -1,44 +1,82 @@
 import React, { useState } from 'react';
-import { Textfit } from "react-textfit";
 import './Calculator.css'
 
 
 
 const Calculator = () => {
 
+    const [result, setresult] = useState("")
+    const [chkMessge, setError] = useState("Happy Calculator")
+
     const btnValues = [
-        ["C", "+-", "%", "/"],
-        [7, 8, 9, "X"],
-        [4, 5, 6, "-"],
         [1, 2, 3, "+"],
-        [0, ".", "="],
+        [4, 5, 6, "-"],
+        [7, 8, 9, "*"],
+        [0, ".", "%"],
+        ["/", "C", "=","D"],
     ];
-    const Wrapper = ({ children }) => {
-        return <div className="wrapper">{children}</div>;
-    };
+
+    // Main Function 
+
+    const setcalu = (val) => {
+        if (val === "=") {
+            finalResult();
+        } else if (val === "C") {
+            clearAll();
+        }else if (val === "D") {
+            delte();
+        } else {
+            setresult(result.concat(val))
+        }
+    }
+
+    // clear all 
+
+    const clearAll = () => {
+        setresult("")
+    }
+
+    // final result 
+
+    const finalResult = () => {
+        try {
+            setError("Happy Calculator")
+            setresult(eval(result).toString())
+        } catch (e) {
+            if (e instanceof SyntaxError) {
+                setError(e.message);
+            }
+        }
+    }
+
+    // delete digit 
+
+    const delte = () => {
+        let str = result.substr(0, result.length - 1);
+        setresult(str);
+    }
 
     return (
         <>
-            <Wrapper>
-                {/* <Screen value=0 /> */}
-                <Textfit className="screen" mode="single" max={70}>
-                    {value}
-                </Textfit>
-                {
-                    btnValues.flat().map((btn, i) => {
-                        return (
-                            <Button
-                                key={i}
-                                className={btn === "=" ? "equals" : ""}
-                                value={btn}
-                                onClick={() => {
-                                    console.log(`${btn} clicked!`);
-                                }}
-                            />
-                        );
-                    })
-                }
-            </Wrapper>
+            <div className="calculator">
+                <p>{chkMessge}</p>
+                <input type="text" placeholder="0" value={result} className="resultField" />
+                <div className="buttonBox">
+                    {
+                        btnValues.flat().map((val, i) => {
+                            return (
+                                <button
+                                    key={i}
+                                    className={val === "=" || val === "C" ? "mainButton" : "subButton"}
+                                    value={val}
+                                    onClick={(e) => setcalu(e.target.value)}
+                                >{val}</button>
+                            );
+                        })
+                    }
+                </div>
+            </div>
+
         </>
     );
 };
