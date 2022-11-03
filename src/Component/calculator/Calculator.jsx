@@ -5,34 +5,61 @@ import './Calculator.css'
 
 const Calculator = () => {
 
-    const btnValues = [
-        ["C", "+-", "%", "/"],
-        [7, 8, 9, "X"],
-        [4, 5, 6, "-"],
-        [1, 2, 3, "+"],
-        [0, ".", "="],
-    ];
     const [result, setresult] = useState("")
+    const [chkMessge, setError] = useState("Happy Calculator")
+
+    const btnValues = [
+        [1, 2, 3, "+"],
+        [4, 5, 6, "-"],
+        [7, 8, 9, "*"],
+        [0, ".", "%"],
+        ["/", "C", "=","D"],
+    ];
+
+    // Main Function 
 
     const setcalu = (val) => {
         if (val === "=") {
             finalResult();
         } else if (val === "C") {
             clearAll();
+        }else if (val === "D") {
+            delte();
         } else {
-            getresult(setresult.concat(val))
+            setresult(result.concat(val))
         }
     }
+
+    // clear all 
+
     const clearAll = () => {
         setresult("")
     }
+
+    // final result 
+
     const finalResult = () => {
-        setresult(eval(result))
+        try {
+            setError("Happy Calculator")
+            setresult(eval(result).toString())
+        } catch (e) {
+            if (e instanceof SyntaxError) {
+                setError(e.message);
+            }
+        }
+    }
+
+    // delete digit 
+
+    const delte = () => {
+        let str = result.substr(0, result.length - 1);
+        setresult(str);
     }
 
     return (
         <>
             <div className="calculator">
+                <p>{chkMessge}</p>
                 <input type="text" placeholder="0" value={result} className="resultField" />
                 <div className="buttonBox">
                     {
@@ -40,9 +67,9 @@ const Calculator = () => {
                             return (
                                 <button
                                     key={i}
-                                    // className={btn === "=" ? "equals" : ""}
+                                    className={val === "=" || val === "C" ? "mainButton" : "subButton"}
                                     value={val}
-                                    onClick={setcalu}
+                                    onClick={(e) => setcalu(e.target.value)}
                                 >{val}</button>
                             );
                         })
