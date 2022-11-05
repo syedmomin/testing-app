@@ -1,0 +1,10 @@
+.mainDiv {
+    position: absolute;
+    top: 30%;
+    left: 40%;
+    width: 400px;
+    height: fit-content;
+    background-color: rgb(213 213 213);
+    padding: 5px;
+    border-radius: 20px;
+}

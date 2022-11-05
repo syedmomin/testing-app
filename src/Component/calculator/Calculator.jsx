@@ -67,7 +67,7 @@ const Calculator = () => {
                             return (
                                 <button
                                     key={i}
-                                    className={val === "=" || val === "C" ? "mainButton" : "subButton"}
+                                    className={val === "=" || val === "C" || val === "D"? "mainButton" : "subButton"}
                                     value={val}
                                     onClick={(e) => setcalu(e.target.value)}
                                 >{val}</button>
