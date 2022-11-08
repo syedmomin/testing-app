@@ -1,4 +1,4 @@
-.mainDiv{
+.add-number{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -6,4 +6,7 @@
     margin-left: -50px;
     width:fit-content;
     height:fit-content;
+    background-color: rgb(197, 208, 228);
+    border-radius: 20px;
+    padding: 15px;
   }
