@@ -1,11 +1,21 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
 
 const Digiwatch = () => {
-
+    const [date, setDate] = useState(new Date());
+  
+    function refreshClock() {
+      setDate(new Date());
+    }
+    useEffect(() => {
+      const timerId = setInterval(refreshClock, 1000);
+      return function cleanup() {
+        clearInterval(timerId);
+      };
+    }, []);
     return (
-        <>
-            <h1>eewrwrew</h1>
-        </>
+      <span>
+        {date.toLocaleTimeString()}
+      </span>
     );
 }
 
