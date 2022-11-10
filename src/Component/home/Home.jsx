@@ -5,7 +5,7 @@ import './Home.css'
 const Home = () => {
     return (
         <>
-            <div class="nine">
+            <div className="nine">
                 <h1>Practice On React JS
                     <span>Basic React</span>
                     <span>Hooks</span>

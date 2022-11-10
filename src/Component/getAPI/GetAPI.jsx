@@ -24,16 +24,16 @@ const GetAPI = () => {
                 {users.length &&
                     users.map((user) => {
                         return (
-                            <div class="card" key={user.id}>
-                                <div class="card-body">
-                                    <div class="user">
+                            <div className="card" key={user.id}>
+                                <div className="card-body">
+                                    <div className="user">
                                         <img key={user.avatar} src={user.avatar} />
-                                        <div class="user-info">
+                                        <div className="user-info">
                                             <h5>{user.first_name} {user.last_name}</h5>
                                             <small>2h ago</small>
                                         </div>
                                     </div>
-                                    <span class="tag">{user.email}</span>
+                                    <span className="tag">{user.email}</span>
                                 </div>
                             </div>
                         );

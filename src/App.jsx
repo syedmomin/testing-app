@@ -47,10 +47,8 @@ const App = () => {
                     </ul>
                 </nav>
             </header>
-            {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
             <Routes>
-                <Route path="/" index element={<Home />} />
+                <Route path="/testing-app" element={<Home />} />
                 <Route path="/number" element={<AddNumber />} />
                 <Route path="/getapi" element={<GetAPI />} />
                 <Route path="/calculator" element={<Calculator />} />
@@ -58,7 +56,7 @@ const App = () => {
                 <Route path="/digiwatch" element={<Digiwatch />} />
                 <Route path="/timer" element={<Countimer />} />
             </Routes>
-            <footer class="footer">
+            <footer className="footer">
                 <p>Desgin by DanySAM</p>
             </footer>
         </Router>
