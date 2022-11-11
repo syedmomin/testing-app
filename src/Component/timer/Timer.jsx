@@ -85,7 +85,7 @@ const Countimer = () => {
     return (
         <div className="mainTimer">
             <h2>{timer}</h2>
-            <button onClick={onClickReset}>Reset</button>
+            <button onClick={onClickReset} className='timerButton'>Start</button>
         </div>
     )
 }

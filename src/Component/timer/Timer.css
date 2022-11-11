@@ -12,3 +12,10 @@
     padding: 15px;
     font-size: 40px;
 }
+.timerButton{
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    font-size: 29px;
+    padding: 5px;
+}
