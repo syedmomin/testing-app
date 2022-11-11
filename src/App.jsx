@@ -8,6 +8,7 @@ import TodoList from './Component/todoList/TodoList';
 import Digiwatch from './Component/watch/Watch';
 import Countimer from './Component/timer/Timer';
 import GetAPI from './Component/getAPI/GetAPI'
+import BasicReact from './Component/basic/Basic'
 
 const App = () => {
     return (
@@ -49,6 +50,7 @@ const App = () => {
             </header>
             <Routes>
                 <Route path="/testing-app" element={<Home />} />
+                <Route path="/basic" element={<BasicReact />} />
                 <Route path="/number" element={<AddNumber />} />
                 <Route path="/getapi" element={<GetAPI />} />
                 <Route path="/calculator" element={<Calculator />} />
