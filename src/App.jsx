@@ -9,6 +9,7 @@ import Digiwatch from './Component/watch/Watch';
 import Countimer from './Component/timer/Timer';
 import GetAPI from './Component/getAPI/GetAPI'
 import BasicReact from './Component/basic/Basic'
+import {NormalForm,ValidationForm} from './Component/form/Form'
 
 const App = () => {
     return (
@@ -44,6 +45,12 @@ const App = () => {
                             <li>
                                 <Link to="/timer">Counter Timer</Link>
                             </li>
+                            <li>
+                                <Link to="/spform">Simple Form</Link>
+                            </li>
+                            <li>
+                                <Link to="/vdform">Valide Form</Link>
+                            </li>
                         </div>
                     </ul>
                 </nav>
@@ -57,6 +64,8 @@ const App = () => {
                 <Route path="/todo" element={<TodoList />} />
                 <Route path="/digiwatch" element={<Digiwatch />} />
                 <Route path="/timer" element={<Countimer />} />
+                <Route path="/spform" element={<NormalForm />} />
+                <Route path="/vdform" element={<ValidationForm />} />
             </Routes>
             <footer className="footer">
                 <p>Desgin by DanySAM</p>
