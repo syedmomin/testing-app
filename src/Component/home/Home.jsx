@@ -12,6 +12,8 @@ const Home = () => {
                     <span>API</span>
                     <span>Calculator</span>
                     <span>Todo List</span>
+                    <span>Digital Watch</span>
+                    <span>Timer</span>
                 </h1>
             </div>
         </>
