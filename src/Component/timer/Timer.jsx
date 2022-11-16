@@ -90,15 +90,13 @@ const Countimer = () => {
     // }
     // counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
     useEffect(() => {
-         onClickReset = () => {
         setTimeout(() => setCounter(counter + 1), 1000);
-        }
     }, [counter]);
     return (
         <div className="mainTimer">
             {/* <h2>{counter.hour+":"+counter.mint+":"+counter.sec}</h2> */}
             <h2>{counter}</h2>
-            <button onClick={onClickReset} className='timerButton'>Start</button>
+            {/* <button onClick={onClickReset} className='timerButton'>Start</button> */}
         </div>
     )
 }
