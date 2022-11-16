@@ -23,6 +23,7 @@ const NormalForm = () => {
                 <form onSubmit={formik.handleSubmit}>
                     <label htmlFor="firstName">First Name</label>
                     <input
+                        id="firstName"
                         type="text"
                         className='inputField'
                         onChange={formik.handleChange}
@@ -31,6 +32,7 @@ const NormalForm = () => {
                     <br />
                     <label htmlFor="lastName">Last Name</label>
                     <input
+                        id="lastName"
                         type="text"
                         className='inputField'
                         onChange={formik.handleChange}
@@ -40,6 +42,7 @@ const NormalForm = () => {
 
                     <label htmlFor="email">Email Address</label>
                     <input
+                        id="email"
                         type="email"
                         className='inputField'
                         onChange={formik.handleChange}
