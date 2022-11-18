@@ -1,7 +1,7 @@
 import React from 'react'
 import './Form.css'
 import { useFormik } from 'formik';
-
+import * as Yup from 'yup';
 
 export const NormalForm = () => {
 
@@ -58,6 +58,29 @@ export const NormalForm = () => {
     )
 }
 
+
+
+const SignupSchema = Yup.object().shape({
+    firstName: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+    lastName: Yup.string()
+        .min(2, 'Too Short!')
+        .max(50, 'Too Long!')
+        .required('Required'),
+    contact: Yup.string()
+        .min(2, 'Too Short!')
+        .required('Required'),
+    email: Yup.string().email('Invalid email').required('Required'),
+    password: Yup.string()
+        .min(2, 'Too Short!')
+        .required('Required'),
+        conform_password: Yup.string()
+        .min(2, 'Too Short!')
+        .required('Required'),
+});
+
 export const ValidationForm = () => {
     const formik = useFormik({
         initialValues: {
@@ -68,13 +91,14 @@ export const ValidationForm = () => {
             password: '',
             conform_password: '',
         },
+        validationSchema: { SignupSchema },
         onSubmit: values => {
             alert(JSON.stringify(values, null, 2));
         },
     });
 
     return (
-             <>
+        <>
             <div className='fromdiv'>
                 <h1>Formik & YUP Form Validation</h1>
                 <form onSubmit={formik.handleSubmit}>
@@ -86,6 +110,9 @@ export const ValidationForm = () => {
                         onChange={formik.handleChange}
                         value={formik.values.firstName}
                     />
+                    {/* {errors.firstName && touched.firstName ? (
+                        <div>{errors.firstName}</div>
+                    ) : null} */}
                     <br />
                     <label htmlFor="lastName">Last Name</label>
                     <input
